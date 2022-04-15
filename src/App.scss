@@ -1,0 +1,100 @@
+@import "../node_modules/include-media/dist/_include-media.scss";
+.App {
+  width: 100%;
+  display: flex;
+  height: 100vh;
+  @include media("<500px") {
+    flex-direction: column;
+    height: auto;
+  }
+
+  & > div {
+    width: 50%;
+    flex: auto;
+
+    @include media("<500px") {
+      width: 100%;
+    }
+  }
+
+  .left {
+    overflow-y: scroll;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+
+    & > div {
+      padding: 10px 0px;
+    }
+
+    &__header {
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    &__body {
+      display: flex;
+      flex-direction: column;
+
+      &__question {
+        display: flex;
+        font-size: 18px;
+        gap: 20px;
+        flex-direction: column;
+        padding-bottom: 50px;
+      }
+    }
+
+    @include media("<500px") {
+      height: auto;
+      overflow-y: visible;
+    }
+  }
+
+  .right {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    &__bottom {
+      display: flex;
+      padding: 10px 20px;
+
+      & > div {
+        flex: auto;
+        display: flex;
+        gap: 30px;
+        cursor: pointer;
+      }
+
+      & > button {
+        padding: 7px 25px;
+        background-color: #afec3f;
+        outline: none;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    &__input {
+      padding: 10px 20px;
+      flex: auto;
+
+      & > textarea {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__output {
+      flex: auto;
+      padding: 10px 20px;
+      overflow-y: scroll;
+    }
+  }
+}
